@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+*
+{
+    font-family: 'poppins' ,sans-serif;
+}
+body
+{
+    background-image: url("img/signinpage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.logo
+{
+    border-radius: 150px;
+    width: 82px;
+    padding-left: 2px;
+    padding-top: 3px;
+}
+.box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+.container
+{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 0 15px;
+    
+}
+span
+{
+    font-weight: 900;
+    color: #020202;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+header
+{
+    font-weight: 700;
+    color: #050505;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+.input-field .input
+{
+    font-weight: 700;
+    height: 45px;
+    width: 87%;
+    border: none;
+    border-radius: 30px;
+    color: #040404;
+    font-size: 15px;
+    padding: 0 0 0 45px;
+    background: rgba(255, 255, 255, 0.664);
+    outline: none;
+}
+i
+{
+    position: relative;
+    top: -33px;
+    left: 17px;
+    color: #080808;
+}
+::-webkit-input-placeholder
+{
+    color: #030303;
+}
+.submit
+{
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    width: 100%;
+    color: black;
+    background: rgba(255, 255, 255, 0.656);
+    cursor: pointer;
+    font-weight: 750;
+    transition: .3s ;
+}
+.submit:hover
+{
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+.two-col
+{
+    display: block;
+    flex-direction: row;
+    justify-content: baseline;
+    color: black;
+    font-size: 15px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+.one
+{
+    display: flex;
+}
+label a
+{
+    border-radius: 11px;
+    background-color: rgba(250, 247, 247, 0.777);
+    font-weight: 200;
+    text-decoration: none;
+    color: #0408f5;
+}
+

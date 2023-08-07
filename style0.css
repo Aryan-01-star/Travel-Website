@@ -1,0 +1,637 @@
+@import url('https://fonts.googgleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+.header
+{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(img/travel-hd.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.logo
+{
+    border-radius: 150px;
+    width: 82px;
+    padding-left: 2px;
+    padding-top: 3px;
+}
+nav
+{
+    height: 80px;
+    background: #1b1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px 0px 100px;
+}
+nav ul 
+{
+    display: flex;
+    list-style: none;
+}
+nav ul li
+{
+    margin: 0 5px;
+}
+nav ul li a
+{
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    transition: all 0.22s  ease;
+}
+nav ul li a:hover,
+nav ul li a.active
+{
+    color: rgb(1, 1, 1);
+    background-color: #fff;
+    
+}
+
+.register-btn
+{
+    
+    background-color: #fc0808fd;
+    color: #000;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.container
+{
+    padding: 0 7%;
+}
+.header h1
+{
+    font-size: 4vw;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    padding-top: 22%;
+}
+
+
+/*----------------exclusives---------------*/
+.sub-title
+{
+    margin: 50px 0 20px;
+    font-size: 2.2vw;
+    font-weight: 500;
+    color: #333;
+}
+.exclusives
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    grid-gap: 30px;
+}
+.exclusives div img
+{
+    width: 100%;
+    border-radius: 10px;
+}
+.exclusives div 
+{
+    position: relative;
+}
+.exclusives div span
+{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: #0e0000;
+}
+/*------------------Trending Places---------------*/
+.trending
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    grid-gap: 30px;
+    margin-bottom: 30px;
+}
+.trending div img
+{
+    width: 100%;
+    border-radius: 10px;
+}
+.trending h3
+{
+    font-weight: 700;
+    margin-top: 10px;
+}
+/*-------------------call to action-------------*/
+.cta
+{
+    margin: 80px 0;
+    background-image: linear-gradient(to right,#3f2321,transparent),url(img/banner-2.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 5%;
+    color: #fff;
+}
+.cta h3{
+    font-size: 4vw;
+    line-height: 5.3vw;
+    font-weight: 500;
+}
+.cta p
+{
+    font-size: 18px;
+    margin: 10px 0;
+}
+.cta-btn
+{
+    background: #ff5361;
+    color: rgb(249, 252, 251);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+}
+/*--------------Travelers Experience-------------*/
+.stories
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    grid-gap: 30px;
+    margin-bottom: 30px;   
+}
+.stories div img
+{
+    width: 100%;
+    border-radius: 10px;
+}
+.stories div
+{
+    position: relative;
+    text-align: center;
+}
+.stories p
+{
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f2f7f8;
+    font-size: 26px;
+}
+.start-btn
+{
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.611);
+    color: black;
+    font-weight: 550;
+    width: 80%;
+    max-width: 350px;
+    display: block;
+    text-align: center;
+    margin: 40px auto;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 23px;
+}
+.about-msg
+{
+    text-align: center;
+    margin: 80px 0;
+    color: #333;
+    font-size: 17px;
+}
+.about-msg h2
+{
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+/*-------footer---------*/
+.footer
+{
+    margin: 80px 0 10px;
+    text-align: center;
+}
+.footer a
+{
+    text-decoration: none;
+    color: #999;
+    font-size: 22px;
+    margin: 0 10px;
+}
+.footer hr
+{
+    background: #999;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    margin: 20px 0;
+}
+.footer p
+{
+    padding: 15px;
+}
+.active
+{
+    position: relative;
+}
+.active::after
+{
+    content: '';
+    background: #fff;
+    width: 25px;
+    height: 2px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -6px;
+    border-radius: 2px;
+}
+nav .menu-btn i
+{
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+#click
+{
+    display: none;
+}
+
+/*-------for small screen devices----------*/
+@media only screen and (max-width: 940px) 
+{
+        
+    nav ul
+    {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: #111;
+        height: 100vh;
+        width: 100%;
+        display: block;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    nav ul li
+    {
+        margin: 50px 0;
+    }
+    #click:checked ~ .menu-btn i::before
+    {
+        content: "\f00d";
+    }
+    #click:checked ~ ul
+    {
+        left: 0%;
+    }
+    nav ul li a
+    {
+        font-size: 20px;
+
+    }
+    nav ul li a:hover,
+    nav ul li a.active
+    {
+        color: cyan;
+        background: none;
+    }
+    nav .menu-btn i
+    {
+        display: block;
+    }
+ 
+    .register-btn 
+    {
+        margin: 15px 0 30px;
+        display: inline-block;
+    }
+   
+    .active::after {
+        left: -40px;
+        transform: translate(0, 50%);
+        bottom: 50%;
+    }
+    .hidemenu {
+        max-height: 300px;
+    }
+    .header h1 {
+        padding-top: 200px;
+        font-size: 7vw;
+    }
+    .search-bar {
+        width: 90%;
+        margin: 30px auto;
+        padding: 20px 10px 30px;
+        border-radius: 5px;
+        position: relative;
+    }
+    .search-bar form {
+        display: block;
+    }
+    .search-bar form input {
+        border-bottom: 1px solid #dddddd54;
+        width: 100%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+    .search-bar form button {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+    .sub-title {
+        font-size: 6vw;
+    }
+    .cta {
+        padding: 15% 5%;
+    }
+    .cta h3 {
+        font-size: 7vw;
+        line-height: 8vw;
+    }
+    .cta p {
+        font-size: 14px;
+    }
+    .cta-btn {
+        padding: 6px 15px;
+        border-radius: 4px;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .stories p {
+        font-size: 22px;
+    }
+    .about-msg {
+        font-size: 15px;
+    }
+}
+
+/*---------listing page-------------*/
+.navebar-white
+{
+    background: #fdfcfc;
+    box-shadow: 0 5px 10px rgba(248, 244, 244, 0.05);
+}
+.navebar-white .nav-links li a
+{
+    color: hsl(0, 0%, 1%);
+}
+.navebar-white .register .register-btn
+{
+    background: #ff5361;
+    color: #fff;
+}
+nav .navebar-white .fa-bars
+{
+    color: #000;
+}
+.navebar-white .active::after
+{
+    background: #ff5361;
+}
+.list-container
+{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.left-col
+{
+    flex-basis: 70%;
+}
+.right-col
+{
+    flex-basis: 25%;
+}
+.left-col h1
+{
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.house
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    border-top: 1px solid #ccc;
+}
+.house-img
+{
+    flex-basis: 40%;
+}
+.house-info
+{
+    flex-basis: 58%;
+    color: #555;
+}
+.house-img img{
+    width: 100%;
+    border-radius: 12px;
+}
+.house-info h3
+{
+    font-weight: 600;
+    color: #333;
+    font-size: 22px;
+    margin: 4px 0;
+}
+.house-info i
+{
+    color: #ff5361;
+    font-size: 18px;
+    margin: 10px 1px;
+}
+.house-price
+{
+    text-align: right;
+}
+.house-price h4
+{
+    font-size: 20px;
+}
+.house-price h4 span
+{
+    font-size: 16px;
+    font-weight: 500;
+}
+.sidebar
+{
+    border: 1px solid #fa1212;
+    padding: 20px 30px;
+    margin-top: 30px;
+}
+.sidebar
+{
+    font-weight: 500;
+}
+.sidebar h3
+{
+    font-weight: 500;
+    margin: 20px 0 10px;
+}
+.filter
+{
+    display: flex;
+    align-items: center;
+    color: #555;
+    margin-bottom: 10px;
+}
+.filter p
+{
+    flex: 1;
+}
+.filter input
+{
+    margin-right: 15px;
+    cursor: pointer;
+}
+.sidebar-link
+{
+    text-align: right;
+    margin: 20px 0;
+}
+.sidebar-link a
+{
+    text-decoration: none;
+
+}
+.pagination
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+.pagination img
+{
+    width: 15px;
+    margin: 10px 20px;
+}
+.right-arrow
+{
+    transform: rotate(180deg);
+}
+.pagination  span
+{
+    margin: 10px 8px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.pagination .current
+{
+    background: #333;
+    color: #f2f7f8;
+}
+/*-------small screen for listing page-------*/ 
+@media only screen and (max-width: 700px)
+{
+    .list-container
+    {
+        margin-top: 150px;
+    }
+    .left-col,.right-col,.house-img,.house-info
+    {
+        flex-basis: 100%;
+    }
+    .left-col h1
+    {
+        font-size: 22px;
+    }
+    .house-info h3
+    {
+        font-size: 18px;
+    }
+    .house-info i
+    {
+        font-size: 16px;
+    }
+    .pagination span
+    {
+        margin: 10px 2px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+    }
+}
+
+
+/*--------Know-more-------------*/
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+.back-btn
+  {
+      
+      background-color: #fc0808fd;
+      color: #000;
+      font-weight: 600;
+      padding: 5px 14px;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 14px;
+      align-items: center;
+      margin-left: 50%;
+      margin-right: 50%;
+  }
+.back-btn:hover
+  {
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.774);
+  }
+
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+    /* Styles for small screens */
+    header 
+    {
+        text-align: center;
+    }
+}
+  
+
