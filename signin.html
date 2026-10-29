@@ -1,42 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style1.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>TRIP-STAR | Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIP-STAR &bull; Member Sign In</title>
+  <meta name="description" content="Sign in to your TripStar account to manage luxury reservations, rewards, and itineraries.">
+  <link rel="stylesheet" href="css/apple-design.css">
 </head>
 <body>
-    <div class="logo"><img src="img/traveling-logo.png" class="logo"></div>
-   <div class="box">
-    <div class="container">
-        <div class="top">
-            <span>Have an account?</span>
-            <header>Login</header>
+
+  <!-- Sign In Card (Navbar removed, back button inside form) -->
+  <main class="apple-auth-wrapper">
+    <div class="apple-auth-card">
+      <!-- Back Icon Button inside the form -->
+      <div style="text-align: left; margin-bottom: 14px;">
+        <a href="index.html" class="auth-back-btn" aria-label="Return to Home">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Return Home
+        </a>
+      </div>
+
+      <div class="auth-icon-badge">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+      </div>
+
+      <h1 style="font-size:1.65rem; font-weight:700; color:var(--label-primary); letter-spacing:-0.02em; margin-bottom:6px;">
+        Welcome back to <span class="font-cursive" style="font-size:1.4em; color:var(--gold-warm); font-weight:normal; vertical-align:middle;">TripStar</span>
+      </h1>
+      <p style="font-size:0.9rem; color:var(--label-secondary); margin-bottom:24px; line-height:1.5;">
+        Access your bespoke reservations, saved chalets, and private concierge.
+      </p>
+
+      <!-- Active Session Notice (if already logged in) -->
+      <div id="activeSessionBanner" class="auth-alert-message info" style="display:none;"></div>
+
+      <!-- Auth Error / Feedback Message -->
+      <div id="authAlert" class="auth-alert-message error" style="display:none;"></div>
+
+      <form id="signInForm" onsubmit="event.preventDefault(); handleSignIn();">
+        <div class="apple-form-group">
+          <label class="apple-form-label" for="loginUsername">Email or Username</label>
+          <div class="apple-input-wrapper">
+            <input type="text" id="loginUsername" class="apple-form-input" placeholder="e.g. alex@tripstar.com" required autocomplete="username">
+          </div>
         </div>
-        <div class="input-field">
-            <input type="text" class="input" placeholder="Username" id="">
-            <i class='bx bx-user' ></i>
+
+        <div class="apple-form-group">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+            <label class="apple-form-label" for="loginPassword" style="margin-bottom:0;">Password</label>
+            <a href="#" onclick="TripStar.showToast('A secure recovery code was dispatched to your inbox.', 'info'); return false;" style="font-size:0.8rem; color:var(--apple-blue); font-weight:600;">Forgot password?</a>
+          </div>
+          <div class="apple-input-wrapper">
+            <input type="password" id="loginPassword" class="apple-form-input" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="apple-input-icon" id="togglePasswordBtn" aria-label="Toggle password visibility">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="input-field">
-            <input type="Password" class="input" placeholder="Password" id="">
-            <i class='bx bx-lock-alt'></i>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; margin:16px 0 22px;">
+          <label style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--label-secondary); cursor:pointer;">
+            <input type="checkbox" id="rememberMeCheckbox" checked style="accent-color:var(--apple-blue);">
+            Keep me signed in
+          </label>
         </div>
-        <div class="input-field">
-            <input type="submit" class="submit" value="Login" id="">
+
+        <button type="submit" id="submitBtn" class="btn-apple btn-apple-primary btn-apple-lg" style="width:100%; margin-bottom:16px;">
+          Sign In
+        </button>
+
+        <!-- Tasteful test account helper -->
+        <div class="demo-account-hint">
+          <span class="font-handwritten" style="font-size:1.15rem; color:var(--label-primary);">Sample Explorer:</span>
+          <button type="button" class="btn-demo-chip" onclick="fillTestAccount('alex@tripstar.com', 'password123')">alex@tripstar.com</button>
+          <span style="font-size:0.78rem; color:var(--label-tertiary);">(password123)</span>
         </div>
-        <div class="two-col">
-            <div class="one">
-               <input type="checkbox" name="" id="check">
-               <label for="check"> Remember Me</label>
-            </div>
-            <div class="two">
-                <label><a href="#">Forgot password?</a></label>
-            </div>
+
+        <div style="font-size:0.88rem; color:var(--label-secondary); border-top:1px solid #E5E5EA; padding-top:18px;">
+          New to TripStar? 
+          <a href="signup.html" style="color:var(--apple-blue); font-weight:700; text-decoration:none;">Create an account &rarr;</a>
         </div>
+      </form>
     </div>
-</div>  
+  </main>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Check if user is already signed in or has pending booking
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentUser = TripStar.getCurrentUser();
+      const banner = document.getElementById('activeSessionBanner');
+      if (currentUser && currentUser.name) {
+        banner.style.display = 'block';
+        banner.innerHTML = `
+          Signed in as <strong>${currentUser.name}</strong> (${currentUser.email || ''}). 
+          <a href="index.html" style="text-decoration:underline; font-weight:700; margin-left:6px;">Go to Home</a> or 
+          <a href="#" onclick="TripStar.logout(); location.reload(); return false;" style="color:#D90429; text-decoration:underline; margin-left:6px;">Sign Out</a>
+        `;
+      } else {
+        const pendingRaw = sessionStorage.getItem('tripstar_pending_booking');
+        if (pendingRaw) {
+          try {
+            const pending = JSON.parse(pendingRaw);
+            banner.style.display = 'block';
+            banner.style.background = 'rgba(0,113,227,0.06)';
+            banner.style.borderColor = 'rgba(0,113,227,0.2)';
+            banner.style.color = '#0071E3';
+            banner.innerHTML = `
+              <strong>Reserving ${pending.title}</strong> (${pending.total})<br>
+              <span style="font-size:0.82rem; color:var(--label-secondary);">Sign in to immediately confirm and secure your reservation.</span>
+            `;
+          } catch(e) {}
+        }
+      }
+    });
+
+    const toggleBtn = document.getElementById('togglePasswordBtn');
+    const pwdInput = document.getElementById('loginPassword');
+    toggleBtn.addEventListener('click', () => {
+      const isPwd = pwdInput.type === 'password';
+      pwdInput.type = isPwd ? 'text' : 'password';
+      toggleBtn.innerHTML = isPwd 
+        ? `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`
+        : `<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+    });
+
+    function fillTestAccount(email, pass) {
+      document.getElementById('loginUsername').value = email;
+      document.getElementById('loginPassword').value = pass;
+      document.getElementById('authAlert').style.display = 'none';
+      TripStar.showToast('Credentials filled. Click "Sign In" to continue.', 'info');
+    }
+
+    function handleSignIn() {
+      const emailOrUser = document.getElementById('loginUsername').value.trim();
+      const pass = document.getElementById('loginPassword').value;
+      const alertBox = document.getElementById('authAlert');
+      const submitBtn = document.getElementById('submitBtn');
+
+      alertBox.style.display = 'none';
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Signing In...';
+
+      setTimeout(() => {
+        const result = TripStar.loginAccount(emailOrUser, pass);
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Sign In';
+
+        if (!result.success) {
+          alertBox.className = 'auth-alert-message error';
+          alertBox.innerHTML = result.message;
+          alertBox.style.display = 'block';
+          return;
+        }
+
+        const pendingRaw = sessionStorage.getItem('tripstar_pending_booking');
+        if (pendingRaw) {
+          try {
+            const pending = JSON.parse(pendingRaw);
+            const bookings = TripStar.getStorage(TripStar.STORAGE_KEYS.BOOKINGS, []);
+            const newBooking = {
+              id: 'TS-' + Math.floor(100000 + Math.random() * 900000),
+              title: pending.title,
+              location: pending.location,
+              checkIn: pending.checkIn,
+              checkOut: pending.checkOut,
+              guests: pending.guests || 2,
+              total: pending.total,
+              userEmail: result.user.email,
+              userName: result.user.name,
+              date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+            };
+            bookings.push(newBooking);
+            TripStar.setStorage(TripStar.STORAGE_KEYS.BOOKINGS, bookings);
+            sessionStorage.removeItem('tripstar_pending_booking');
+            TripStar.showToast(`Welcome back, ${result.user.name}! Your reservation at ${pending.title} is confirmed!`, "success");
+            setTimeout(() => {
+              window.location.href = pending.returnUrl || 'listing.html';
+            }, 850);
+            return;
+          } catch(e) {}
+        }
+
+        TripStar.showToast(`Welcome back, ${result.user.name}!`, "success");
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 700);
+      }, 350);
+    }
+  </script>
 </body>
 </html>

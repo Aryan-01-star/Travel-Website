@@ -1,0 +1,20 @@
+{
+  "name": "trip-star-travel",
+  "version": "2.0.0",
+  "description": "TripStar - Next-Generation Travel & Luxury Stays Platform designed with Apple Human Interface Guidelines",
+  "main": "serve.js",
+  "scripts": {
+    "start": "node serve.js",
+    "dev": "node serve.js",
+    "serve": "node serve.js"
+  },
+  "keywords": [
+    "travel",
+    "luxury-stays",
+    "apple-design",
+    "destinations",
+    "trip-star"
+  ],
+  "author": "TRIP-STAR",
+  "license": "MIT"
+}

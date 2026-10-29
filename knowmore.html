@@ -1,43 +1,642 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Know More</title>
-    <link rel="stylesheet" href="style0.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIPSTAR &bull; Privilege Club & Ambassador Rewards</title>
+  <meta name="description" content="Share TripStar with your fellow wanderers to unlock unexpiring travel credits, complimentary suite upgrades, VIP chauffeur transfers, and elite global privileges.">
+  <link rel="stylesheet" href="css/apple-design.css">
 </head>
 <body>
 
-    <header>
-        <h1>Get an Opportunity to Win Rewards by Sharing the Website</h1>
-    </header>
-    <div class="content-box">
-    <main>
-        <p>Get ready to embark on an exciting journey where you not only explore the world but also get rewarded for sharing the website! 
-            At our website, we believe that sharing is caring, and we value your contribution.
-            That's why we offer you an incredible opportunity to win enticing rewards simply by
-             sharing our website with your friends, family, and fellow travelers. By spreading the word about our platform,
-              you not only help others discover the wonders of travel but also give yourself a chance to earn exclusive rewards.</p>
+  <!-- Apple Floating Glass Navbar -->
+  <header class="apple-navbar-container">
+    <nav class="apple-navbar">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo-badge">
+          <img src="img/traveling-logo.png" alt="TripStar Logo">
+        </div>
+        <div class="nav-brand-title">TRIPSTAR <span class="nav-cursive-tag font-cursive">voyages</span></div>
+      </a>
 
-        <p>Imagine receiving special discounts on flights, accommodations, 
-            or even once-in-a-lifetime travel experiences, all for sharing something you already love!
-            It's a win-win situation where your passion for travel meets the possibility of incredible rewards. 
-            Whether you're a seasoned globetrotter or a budding adventurer, your shared experiences hold immense value,
-            and we want to recognize and appreciate your efforts.
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="bestplaces.html" class="nav-link">Destinations</a></li>
+        <li><a href="listing.html" class="nav-link">Luxury Stays</a></li>
+        <li><a href="webx.html" class="nav-link">Travel Portal</a></li>
+        <li><a href="knowmore.html" class="nav-link active">Rewards</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="signin.html" class="btn-auth-pill">Sign In</a>
+      </div>
+
+      <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Header & Hero -->
+  <section class="section-spacer" style="padding-top:130px; padding-bottom:28px;">
+    <div class="apple-container">
+      <div class="rewards-hero-card">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:12px;">
+          <span class="apple-eyebrow font-cursive" style="font-size:1.6rem; color:var(--gold-warm); text-transform:none;">Privilege Atelier</span>
+          <div class="rewards-activity-ticker">
+            <span class="activity-pulse-dot"></span>
+            <span id="liveTickerText" style="color:var(--label-secondary); font-weight:600;">Sophie M. redeemed $150 credits for Amalfi Coast Villa</span>
+          </div>
+        </div>
+
+        <h1 class="apple-section-title" style="font-family:var(--font-adventure); text-transform:uppercase; letter-spacing:-0.02em; margin-bottom:14px;">
+          The Art of Wandering.<br>Rewarding Your Journey.
+        </h1>
+        <p class="apple-section-desc" style="max-width:760px; margin:0 0 10px;">
+          Share curated global residences with your wanderlust circle. Both of you receive unexpiring hospitality credits, guaranteed suite upgrades, airport lounge passes, and lifetime elite recognition.
         </p>
 
-        <p>Join our community of passionate travelers and start sharing the website with your network today.
-            It's as simple as a click of a button or a heartfelt recommendation.
-             The more you share, the greater your chances of unlocking amazing rewards that will enhance your future travels.
-              So don't miss out on this fantastic opportunity to be rewarded for your enthusiasm and help others embark on unforgettable journeys.
+        <!-- Stats Counter Bar -->
+        <div class="rewards-stats-bar">
+          <div class="rewards-stat-pill">
+            <div class="rewards-stat-value">$50 USD</div>
+            <div class="rewards-stat-label">Welcome credit for each friend</div>
+          </div>
+          <div class="rewards-stat-pill">
+            <div class="rewards-stat-value">100%</div>
+            <div class="rewards-stat-label">Lifetime rollover &bull; Never expires</div>
+          </div>
+          <div class="rewards-stat-pill">
+            <div class="rewards-stat-value">4 Tiers</div>
+            <div class="rewards-stat-label">Silver, Gold, Platinum, Diamond</div>
+          </div>
+          <div class="rewards-stat-pill">
+            <div class="rewards-stat-value">24/7 VIP</div>
+            <div class="rewards-stat-label">Dedicated private concierge desk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Member Wallet / Ambassador Command Center -->
+  <section class="section-spacer" style="padding-top:10px; padding-bottom:24px;">
+    <div class="apple-container">
+      <div class="ambassador-wallet-card">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+              <span class="wallet-badge-pill" id="memberTierBadge">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Gold Explorer Member
+              </span>
+              <span style="font-size:0.8rem; color:rgba(255,255,255,0.6);" id="memberIdTag">Member ID: #TS-84920</span>
+            </div>
+            <h2 style="font-size:1.6rem; font-weight:800; color:#FFFFFF; margin-bottom:4px;" id="walletUserName">
+              Welcome back, Alex Vance
+            </h2>
+            <p style="color:rgba(255,255,255,0.7); font-size:0.88rem;">
+              Your credits apply seamlessly to any curated villa or partner experience at checkout.
+            </p>
+          </div>
+
+          <div style="text-align:right;">
+            <div style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.6);">Available Wallet Balance</div>
+            <div class="wallet-balance-num" id="walletCreditBalance">$150.00 USD</div>
+            <div style="font-size:0.84rem; color:var(--apple-green); font-weight:600;">+ $50 Pending Referral Credit</div>
+          </div>
+        </div>
+
+        <!-- Progress to next tier -->
+        <div style="margin-top:28px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.84rem; color:rgba(255,255,255,0.8);">
+            <span>Tier Progress: <strong style="color:#FFFFFF;">3 of 5 Referrals</strong> for Platinum Ambassador</span>
+            <span style="color:var(--gold-warm); font-weight:600;">60% Complete</span>
+          </div>
+          <div class="wallet-progress-track">
+            <div class="wallet-progress-fill" style="width:60%;"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:18px;">
+            <div style="display:flex; gap:10px;">
+              <a href="listing.html" class="btn-apple btn-apple-primary btn-apple-sm" style="background:#2563EB; border:none;">
+                Explore Stays to Redeem
+              </a>
+              <button class="btn-apple btn-apple-secondary btn-apple-sm" onclick="TripStar.showToast('Wallet credits will be applied automatically at checkout.', 'success')" style="background:rgba(255,255,255,0.1); color:#FFFFFF; border-color:rgba(255,255,255,0.2);">
+                Apply Credits Now
+              </button>
+            </div>
+            <div style="font-size:0.8rem; color:rgba(255,255,255,0.5);">
+              Lifetime Earned: <strong style="color:rgba(255,255,255,0.85);">$350 USD</strong> &bull; Total Guests Welcomed: <strong style="color:rgba(255,255,255,0.85);">3 Wanderers</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Referral Tool & Calculator -->
+  <section class="section-spacer" style="padding-top:12px;">
+    <div class="apple-container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch;" class="bento-grid">
+        
+        <!-- Invite Generator Box -->
+        <div class="apple-glass-card bento-card-6" style="padding:32px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <span class="apple-eyebrow font-cursive" style="font-size:1.5rem; color:var(--gold-warm); text-transform:none;">Bespoke Invitation</span>
+            <h2 style="font-size:1.45rem; font-weight:800; color:var(--label-primary); margin-bottom:10px; font-family:var(--font-adventure); text-transform:uppercase;">
+              Personal VIP Invite Pass
+            </h2>
+            <p style="color:var(--label-secondary); font-size:0.92rem; line-height:1.6; margin-bottom:20px;">
+              Share your dedicated invitation pass. Every friend receives <strong>$50 off</strong> their inaugural sanctuary booking, and you receive <strong>$50 credit</strong> deposited straight into your member wallet.
             </p>
 
-        <p>Remember, every share counts, and every reward earned is a step closer to your dream destination.
-            Together, let's create a vibrant community of explorers, united by our love for travel and the excitement of receiving well-deserved rewards.
-            Start sharing now and let the adventures and rewards unfold before your eyes. Happy sharing and happy travels!
-        </p>
-    </main>
-</div>
-    <a href="index.html" class="back-btn">Back</a>
+            <div class="apple-input-wrapper" style="margin-bottom:14px;">
+              <input type="text" id="referralLinkInput" class="apple-form-input" readonly value="https://tripstar.travel/invite/ALEX-2026" style="background:var(--bg-canvas); font-weight:600; color:var(--label-primary); letter-spacing:0.02em;">
+            </div>
+
+            <button class="btn-apple btn-apple-primary btn-apple-lg" id="copyLinkBtn" style="width:100%; margin-bottom:18px;">
+              <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Personal Invite Pass
+            </button>
+          </div>
+
+          <div>
+            <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; font-weight:700; color:var(--label-secondary); margin-bottom:10px;">
+              Instant 1-Click Share
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:8px;">
+              <button class="btn-apple btn-apple-secondary btn-apple-sm" id="shareWhatsAppBtn" style="font-size:0.8rem; padding:8px 6px;">WhatsApp</button>
+              <button class="btn-apple btn-apple-secondary btn-apple-sm" id="shareTwitterBtn" style="font-size:0.8rem; padding:8px 6px;">X / Twitter</button>
+              <button class="btn-apple btn-apple-secondary btn-apple-sm" id="shareTelegramBtn" style="font-size:0.8rem; padding:8px 6px;">Telegram</button>
+              <button class="btn-apple btn-apple-secondary btn-apple-sm" id="shareEmailBtn" style="font-size:0.8rem; padding:8px 6px;">Email</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Calculator -->
+        <div class="apple-glass-card bento-card-6" style="padding:32px;">
+          <span class="apple-eyebrow font-cursive" style="font-size:1.5rem; color:var(--gold-warm); text-transform:none;">Tier & Earnings Visualizer</span>
+          <h2 style="font-size:1.45rem; font-weight:800; color:var(--label-primary); margin-bottom:10px; font-family:var(--font-adventure); text-transform:uppercase;">
+            Reward Estimator
+          </h2>
+          <p style="color:var(--label-secondary); font-size:0.92rem; margin-bottom:20px;">
+            Slide to visualize accumulated credits and newly unlocked VIP privileges.
+          </p>
+
+          <div style="margin-bottom:24px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+              <span style="font-size:0.88rem; color:var(--label-secondary); font-weight:600;">Invited Travelers:</span>
+              <strong id="referralCountDisplay" style="font-size:1.35rem; color:var(--label-primary); font-family:var(--font-adventure);">5 Wanderers</strong>
+            </div>
+            <input type="range" id="referralSlider" min="1" max="25" value="5" step="1" style="width:100%; accent-color:var(--apple-blue); cursor:pointer;">
+          </div>
+
+          <div style="background:var(--bg-canvas); border:1px solid var(--border-card); border-radius:18px; padding:20px; margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:12px; align-items:baseline;">
+              <span style="font-size:0.9rem; color:var(--label-secondary);">Accumulated Travel Credit</span>
+              <span id="estimatedCredits" style="font-size:1.75rem; font-weight:800; color:var(--apple-green); font-family:var(--font-adventure);">$250 USD</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.88rem;">
+              <span style="color:var(--label-secondary);">Achieved Elite Tier:</span>
+              <strong id="tierDisplay" style="color:var(--apple-blue); font-weight:700;">Gold Explorer</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:0.88rem;">
+              <span style="color:var(--label-secondary);">Signature Privilege:</span>
+              <strong id="perkDisplay" style="color:var(--label-primary); font-weight:700;">Free Airport Lounge Access</strong>
+            </div>
+          </div>
+
+          <!-- Unlocked Perks List (Checklist) -->
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:0.82rem; color:var(--label-secondary);">
+            <div id="checkPerk1" style="display:flex; align-items:center; gap:8px; color:var(--apple-green); font-weight:600;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Priority check-in & late checkout (12:00 PM / 4:00 PM)</span>
+            </div>
+            <div id="checkPerk2" style="display:flex; align-items:center; gap:8px; color:var(--apple-green); font-weight:600;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Complimentary boutique wine upon arrival</span>
+            </div>
+            <div id="checkPerk3" style="display:flex; align-items:center; gap:8px; color:var(--apple-blue); font-weight:600;">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              <span id="checkPerk3Text">Unlimited airport lounge passes worldwide</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-Tier Comparison Matrix (The Elite Spectrum) -->
+  <section class="section-spacer">
+    <div class="apple-container">
+      <div class="apple-section-header">
+        <span class="apple-eyebrow font-cursive" style="font-size:1.6rem; color:var(--gold-warm); text-transform:none;">Tier Milestones</span>
+        <h2 class="apple-section-title" style="font-family:var(--font-adventure); text-transform:uppercase; letter-spacing:-0.02em;">The Privilege Spectrum</h2>
+        <p class="apple-section-desc">Progress across our four distinguished ambassador tiers. Enjoy escalated privileges with every shared voyage.</p>
+      </div>
+
+      <div class="rewards-tier-grid">
+        
+        <!-- Tier 1: Silver Nomad -->
+        <div class="rewards-tier-card">
+          <div>
+            <div class="tier-card-name">Silver Nomad</div>
+            <div class="tier-card-threshold">1 &ndash; 3 Invited Wanderers</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--label-primary); margin-bottom:16px; font-family:var(--font-adventure);">$50 <span style="font-size:0.85rem; font-weight:500; color:var(--label-secondary);">/ booking</span></div>
+            <ul class="tier-perks-list">
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> $50 credit per successful guest</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Early villa check-in (12:00 PM)</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Welcome fruit & sparkling water</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Flexible 24h cancellation</li>
+            </ul>
+          </div>
+          <button class="btn-apple btn-apple-secondary btn-apple-sm" onclick="TripStar.showToast('You are currently a Gold Explorer (Tier 2).', 'info')" style="width:100%;">Completed</button>
+        </div>
+
+        <!-- Tier 2: Gold Explorer (Featured) -->
+        <div class="rewards-tier-card tier-featured">
+          <div class="tier-featured-tag">Current Tier</div>
+          <div>
+            <div class="tier-card-name" style="color:var(--apple-blue);">Gold Explorer</div>
+            <div class="tier-card-threshold">4 &ndash; 7 Invited Wanderers</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--apple-blue); margin-bottom:16px; font-family:var(--font-adventure);">$200 - $350 <span style="font-size:0.85rem; font-weight:500; color:var(--label-secondary);">credit pool</span></div>
+            <ul class="tier-perks-list">
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> All Silver Nomad privileges</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Complimentary airport lounge passes</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Bottle of Sommelier-selected wine</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Late villa checkout (4:00 PM)</li>
+            </ul>
+          </div>
+          <button class="btn-apple btn-apple-primary btn-apple-sm" onclick="TripStar.showToast('You currently enjoy all Gold Explorer privileges.', 'success')" style="width:100%; background:var(--apple-blue);">Active Tier</button>
+        </div>
+
+        <!-- Tier 3: Platinum Ambassador -->
+        <div class="rewards-tier-card">
+          <div>
+            <div class="tier-card-name" style="color:var(--apple-purple);">Platinum Ambassador</div>
+            <div class="tier-card-threshold">8 &ndash; 14 Invited Wanderers</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--label-primary); margin-bottom:16px; font-family:var(--font-adventure);">$400 - $700 <span style="font-size:0.85rem; font-weight:500; color:var(--label-secondary);">credit pool</span></div>
+            <ul class="tier-perks-list">
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Guaranteed sanctuary suite upgrade</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Dedicated 24/7 personal concierge</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> 48-hour advance holiday booking lock</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Complimentary breakfast hamper</li>
+            </ul>
+          </div>
+          <button class="btn-apple btn-apple-secondary btn-apple-sm" onclick="TripStar.showToast('Invite 2 more friends to unlock Platinum Ambassador status!', 'info')" style="width:100%;">2 More Needed</button>
+        </div>
+
+        <!-- Tier 4: Diamond VIP -->
+        <div class="rewards-tier-card">
+          <div>
+            <div class="tier-card-name" style="color:var(--gold-warm);">Diamond VIP</div>
+            <div class="tier-card-threshold">15+ Invited Wanderers</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--gold-warm); margin-bottom:16px; font-family:var(--font-adventure);">$750+ <span style="font-size:0.85rem; font-weight:500; color:var(--label-secondary);">uncapped</span></div>
+            <ul class="tier-perks-list">
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Private chauffeur airport transfer</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> In-villa private chef tasting experience</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Annual complimentary 2-night retreat credit</li>
+              <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg> Direct access to Founder's Reserve stays</li>
+            </ul>
+          </div>
+          <button class="btn-apple btn-apple-secondary btn-apple-sm" onclick="TripStar.showToast('Diamond VIP unlocks exclusive founder retreats and chauffeur service.', 'info')" style="width:100%;">Unlock Tier</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Luxury Privileges Showcase (Bento Cards) -->
+  <section class="section-spacer">
+    <div class="apple-container">
+      <div class="apple-section-header">
+        <span class="apple-eyebrow font-cursive" style="font-size:1.6rem; color:var(--gold-warm); text-transform:none;">Signature Amenities</span>
+        <h2 class="apple-section-title" style="font-family:var(--font-adventure); text-transform:uppercase; letter-spacing:-0.02em;">Unrivaled Travel Privileges</h2>
+        <p class="apple-section-desc">Elevate every itinerary with bespoke privileges unlocked through our ambassador community.</p>
+      </div>
+
+      <div class="rewards-privileges-grid">
+        
+        <!-- Privilege 1: Airport Lounges -->
+        <div class="rewards-privilege-card">
+          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80" alt="VIP Airport Lounge">
+          <div class="rewards-privilege-overlay"></div>
+          <div class="rewards-privilege-content">
+            <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-warm); font-weight:700;">Global Sanctuary</span>
+            <h3 style="font-size:1.4rem; font-weight:800; font-family:var(--font-adventure); text-transform:uppercase; margin:4px 0 8px;">1,200+ VIP Airport Lounges</h3>
+            <p style="font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.5; margin:0;">
+              Escape the terminal rush with complimentary access to premier partner lounges in Zurich, Tokyo, Paris, London, and Singapore.
+            </p>
+          </div>
+        </div>
+
+        <!-- Privilege 2: Chauffeur Transfers -->
+        <div class="rewards-privilege-card">
+          <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80" alt="Private Chauffeur Service">
+          <div class="rewards-privilege-overlay"></div>
+          <div class="rewards-privilege-content">
+            <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-warm); font-weight:700;">Seamless Transit</span>
+            <h3 style="font-size:1.4rem; font-weight:800; font-family:var(--font-adventure); text-transform:uppercase; margin:4px 0 8px;">Private Chauffeur Transfers</h3>
+            <p style="font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.5; margin:0;">
+              Door-to-door luxury transport from runway to residence with executive electric sedans and dedicated luggage stewards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Privilege 3: Suite Upgrades -->
+        <div class="rewards-privilege-card">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80" alt="Panoramic Suite Upgrades">
+          <div class="rewards-privilege-overlay"></div>
+          <div class="rewards-privilege-content">
+            <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-warm); font-weight:700;">Architectural Serenity</span>
+            <h3 style="font-size:1.4rem; font-weight:800; font-family:var(--font-adventure); text-transform:uppercase; margin:4px 0 8px;">Guaranteed Suite Upgrades</h3>
+            <p style="font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.5; margin:0;">
+              Automatic promotion to premier cliffside pavilions, private plunge pool suites, and top-tier mountain view chalets upon availability.
+            </p>
+          </div>
+        </div>
+
+        <!-- Privilege 4: Private Chef Dining -->
+        <div class="rewards-privilege-card">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Private Chef Dining">
+          <div class="rewards-privilege-overlay"></div>
+          <div class="rewards-privilege-content">
+            <span style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold-warm); font-weight:700;">Culinary Art</span>
+            <h3 style="font-size:1.4rem; font-weight:800; font-family:var(--font-adventure); text-transform:uppercase; margin:4px 0 8px;">Bespoke In-Villa Private Chefs</h3>
+            <p style="font-size:0.88rem; color:rgba(255,255,255,0.85); line-height:1.5; margin:0;">
+              Michelin-trained alumni crafting multi-course farm-to-table tasting dinners paired with local vintage cellar collections.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Rewards FAQ (Accordion) -->
+  <section class="section-spacer">
+    <div class="apple-container">
+      <div class="apple-section-header">
+        <span class="apple-eyebrow font-cursive" style="font-size:1.6rem; color:var(--gold-warm); text-transform:none;">Clarity</span>
+        <h2 class="apple-section-title" style="font-family:var(--font-adventure); text-transform:uppercase; letter-spacing:-0.02em;">Frequently Asked Questions</h2>
+        <p class="apple-section-desc">Everything you need to know regarding TripStar credits, tier progression, and luxury redemptions.</p>
+      </div>
+
+      <div class="rewards-faq-container">
+        
+        <div class="rewards-faq-item active">
+          <button class="rewards-faq-question">
+            <span>How do referral credits apply to my stays?</span>
+            <div class="rewards-faq-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </button>
+          <div class="rewards-faq-answer">
+            Referral credits are credited straight to your TripStar Member Wallet the moment your friend completes their booking. During checkout, your available credits apply automatically toward the total reservation balance.
+          </div>
+        </div>
+
+        <div class="rewards-faq-item">
+          <button class="rewards-faq-question">
+            <span>Do TripStar reward credits ever expire?</span>
+            <div class="rewards-faq-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </button>
+          <div class="rewards-faq-answer">
+            No. Unlike conventional frequent flier programs, TripStar ambassador credits feature 100% lifetime rollover. Your balance remains active and fully redeemable across any season with zero expiration date.
+          </div>
+        </div>
+
+        <div class="rewards-faq-item">
+          <button class="rewards-faq-question">
+            <span>How does my invited guest receive their $50 welcome voucher?</span>
+            <div class="rewards-faq-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </button>
+          <div class="rewards-faq-answer">
+            When your guest clicks your unique invite link, an exclusive $50 discount code is automatically attached to their browser session. It reflects as an instant credit reduction when they reserve any sanctuary on TripStar.
+          </div>
+        </div>
+
+        <div class="rewards-faq-item">
+          <button class="rewards-faq-question">
+            <span>Can I combine ambassador credits with promotional offers?</span>
+            <div class="rewards-faq-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </button>
+          <div class="rewards-faq-answer">
+            Yes. TripStar credits operate like real cash in your member wallet. They can be combined with off-peak rates, seasonal discounts, and long-stay weekly promotions without limitation.
+          </div>
+        </div>
+
+        <div class="rewards-faq-item">
+          <button class="rewards-faq-question">
+            <span>How do I redeem my airport lounge and chauffeur privileges?</span>
+            <div class="rewards-faq-icon">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </button>
+          <div class="rewards-faq-answer">
+            Once you attain Gold, Platinum, or Diamond tier status, digital QR lounge passes and chauffeur dispatch coordination are accessible directly within your booking confirmation page and via your dedicated concierge.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Apple Clean Light Footer -->
+  <footer class="apple-footer">
+    <div class="apple-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="nav-logo-badge">
+              <img src="img/traveling-logo.png" alt="TripStar">
+            </div>
+            <div class="nav-brand-title">TRIPSTAR <span class="nav-cursive-tag font-cursive">voyages</span></div>
+          </div>
+          <p>
+            Rewarding our passionate community of global wanderers with unexpiring credits and elite hospitality privileges.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="bestplaces.html">Destinations</a></li>
+            <li><a href="listing.html">Luxury Stays</a></li>
+            <li><a href="webx.html">Travel Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Community</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#reviews">Guestbook Reviews</a></li>
+            <li><a href="signup.html">Join TripStar</a></li>
+            <li><a href="signin.html">Member Sign In</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Atelier</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="TripStar.showToast('Referral Terms: Credits apply automatically at checkout with no expiration.', 'info'); return false;">Referral Terms</a></li>
+            <li><a href="#" onclick="TripStar.showToast('Credit Policy: Non-transferable, stackable with promotional offers.', 'info'); return false;">Credit Policy</a></li>
+            <li><a href="#" onclick="TripStar.showToast('Rewards support desk: rewards@tripstar.travel', 'info'); return false;">Rewards Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>Copyright &copy; 2026 TRIPSTAR Voyages. All rights reserved.</div>
+        <div class="font-handwritten" style="font-size:1.15rem; color:var(--label-secondary);">"Not all those who wander are lost." &bull; Curated for explorers</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Synchronize with logged-in user
+      const user = TripStar.getCurrentUser();
+      const userName = user && user.name ? user.name : 'Alex Vance';
+      const firstName = userName.split(' ')[0].toUpperCase();
+      const referralCode = `${firstName}-2026`;
+      const referralUrl = `https://tripstar.travel/invite/${referralCode}`;
+
+      const linkInput = document.getElementById('referralLinkInput');
+      if (linkInput) linkInput.value = referralUrl;
+
+      const walletUserName = document.getElementById('walletUserName');
+      if (walletUserName) walletUserName.textContent = `Welcome back, ${userName}`;
+
+      // Copy invite pass with haptic toast
+      const copyBtn = document.getElementById('copyLinkBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+          linkInput.select();
+          navigator.clipboard.writeText(linkInput.value).then(() => {
+            TripStar.showToast('VIP invite pass copied to clipboard!', 'success');
+          }).catch(() => {
+            document.execCommand('copy');
+            TripStar.showToast('VIP invite pass copied to clipboard!', 'success');
+          });
+        });
+      }
+
+      // 1-Click Social Shares
+      const shareMsg = encodeURIComponent(`Explore curated luxury sanctuaries worldwide on TripStar. Use my VIP pass for $50 off your first booking: ${referralUrl}`);
+      
+      const shareWhatsAppBtn = document.getElementById('shareWhatsAppBtn');
+      if (shareWhatsAppBtn) {
+        shareWhatsAppBtn.addEventListener('click', () => {
+          window.open(`https://api.whatsapp.com/send?text=${shareMsg}`, '_blank');
+          TripStar.showToast('Opening WhatsApp invitation...', 'info');
+        });
+      }
+
+      const shareTwitterBtn = document.getElementById('shareTwitterBtn');
+      if (shareTwitterBtn) {
+        shareTwitterBtn.addEventListener('click', () => {
+          window.open(`https://twitter.com/intent/tweet?text=${shareMsg}`, '_blank');
+          TripStar.showToast('Opening X / Twitter share...', 'info');
+        });
+      }
+
+      const shareTelegramBtn = document.getElementById('shareTelegramBtn');
+      if (shareTelegramBtn) {
+        shareTelegramBtn.addEventListener('click', () => {
+          window.open(`https://t.me/share/url?url=${encodeURIComponent(referralUrl)}&text=${encodeURIComponent('Join me on TripStar to explore curated luxury residences worldwide and receive $50 off your first stay!')}`, '_blank');
+          TripStar.showToast('Opening Telegram share...', 'info');
+        });
+      }
+
+      const shareEmailBtn = document.getElementById('shareEmailBtn');
+      if (shareEmailBtn) {
+        shareEmailBtn.addEventListener('click', () => {
+          const subject = encodeURIComponent(`A personal invitation to TripStar Luxury Residences`);
+          const body = encodeURIComponent(`Hi,\n\nI wanted to share TripStar with you — they curate incredible architectural villas and luxury chalets worldwide.\n\nUse my personal pass to get $50 off your first stay:\n${referralUrl}\n\nSafe wanderings!`);
+          window.location.href = `mailto:?subject=${subject}&body=${body}`;
+          TripStar.showToast('Drafting invitation email...', 'info');
+        });
+      }
+
+      // Interactive Tier & Earnings Visualizer
+      const slider = document.getElementById('referralSlider');
+      const countDisplay = document.getElementById('referralCountDisplay');
+      const creditsDisplay = document.getElementById('estimatedCredits');
+      const tierDisplay = document.getElementById('tierDisplay');
+      const perkDisplay = document.getElementById('perkDisplay');
+      const checkPerk3Text = document.getElementById('checkPerk3Text');
+
+      if (slider) {
+        slider.addEventListener('input', () => {
+          const val = parseInt(slider.value, 10);
+          countDisplay.textContent = `${val} Wanderer${val > 1 ? 's' : ''}`;
+          const credits = val * 50;
+          creditsDisplay.textContent = `$${credits} USD`;
+
+          if (val < 4) {
+            tierDisplay.textContent = 'Silver Nomad';
+            tierDisplay.style.color = '#8E8E93';
+            perkDisplay.textContent = 'Early Check-in & Late Checkout';
+            if (checkPerk3Text) checkPerk3Text.textContent = 'Priority early check-in (12:00 PM)';
+          } else if (val < 8) {
+            tierDisplay.textContent = 'Gold Explorer';
+            tierDisplay.style.color = 'var(--apple-blue)';
+            perkDisplay.textContent = 'Free Airport Lounge Access';
+            if (checkPerk3Text) checkPerk3Text.textContent = 'Unlimited airport lounge passes worldwide';
+          } else if (val < 15) {
+            tierDisplay.textContent = 'Platinum Ambassador';
+            tierDisplay.style.color = 'var(--apple-purple)';
+            perkDisplay.textContent = 'Guaranteed Suite Upgrade & Concierge';
+            if (checkPerk3Text) checkPerk3Text.textContent = 'Sanctuary suite upgrades & 24/7 private concierge';
+          } else {
+            tierDisplay.textContent = 'Diamond VIP';
+            tierDisplay.style.color = 'var(--gold-warm)';
+            perkDisplay.textContent = 'Private Chauffeur & Michelin Chef Dining';
+            if (checkPerk3Text) checkPerk3Text.textContent = 'Door-to-door private chauffeur & in-villa chef dinner';
+          }
+        });
+      }
+
+      // Live Ticker Cycle
+      const tickerMessages = [
+        "Sophie M. redeemed $150 credits for Amalfi Coast Villa",
+        "Liam S. unlocked Platinum Ambassador status (Zurich)",
+        "Marcus K. applied $100 credits toward Villa Albatross, Santorini",
+        "Elena R. welcomed 4 new travelers to TripStar voyages",
+        "Julian P. booked Chalet Matterhorn with complimentary lounge access"
+      ];
+      let tickerIndex = 0;
+      const tickerEl = document.getElementById('liveTickerText');
+      if (tickerEl) {
+        setInterval(() => {
+          tickerIndex = (tickerIndex + 1) % tickerMessages.length;
+          tickerEl.style.opacity = '0';
+          setTimeout(() => {
+            tickerEl.textContent = tickerMessages[tickerIndex];
+            tickerEl.style.opacity = '1';
+          }, 300);
+        }, 5000);
+      }
+
+      // Accordion Toggle
+      const faqQuestions = document.querySelectorAll('.rewards-faq-question');
+      faqQuestions.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.rewards-faq-item');
+          const isOpen = item.classList.contains('active');
+          document.querySelectorAll('.rewards-faq-item').forEach(el => el.classList.remove('active'));
+          if (!isOpen) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
