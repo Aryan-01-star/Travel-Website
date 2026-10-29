@@ -703,6 +703,7 @@
     </div>
   </footer>
 
+  <script src="js/ai-engine.js"></script>
   <script src="js/app.js"></script>
   <script>
     // =========================================================================
@@ -1032,7 +1033,9 @@
       if (reviews.length === 0) {
         container.innerHTML = `
           <div style="background:#FFFFFF; border:1px solid var(--border-card); border-radius:var(--radius-md); padding:32px 20px; text-align:center;">
-            <div style="font-size:1.8rem; margin-bottom:8px;">✍️</div>
+            <div style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; background:var(--bg-canvas); color:var(--label-secondary); margin-bottom:10px;">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg>
+            </div>
             <p style="color:var(--label-secondary); font-size:0.9rem; margin:0;">
               No community letters posted yet. Be the first traveler to share your story on the left!
             </p>

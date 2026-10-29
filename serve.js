@@ -1,4 +1,4 @@
-// Lightweight zero-dependency static server for TripStar
+// Lightweight zero-dependency static server with AI Travel Concierge for TripStar
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -23,95 +23,38 @@ const MIME_TYPES = {
   '.ttf': 'font/ttf'
 };
 
+// Universal Knowledge & AI Response Engine
+const TripStarAi = require('./js/ai-engine.js');
+const RESIDENCES = TripStarAi.RESIDENCES;
+
+// AI Response Synthesis Engine powered by TripStarAi
+function generateAiResponse(userMessage) {
+  const result = TripStarAi.answerTravelQuery(userMessage);
+  return {
+    reply: result.reply,
+    recommendedStays: result.recommendedStays || [],
+    timestamp: new Date().toISOString()
+  };
+}
+
 const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   let reqUrl = parsedUrl.pathname;
 
-  // Real-time Residences API Endpoint
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    return res.end();
+  }
+
+  // 1. Real-time Residences API Endpoint
   if (reqUrl === '/api/residences') {
     const category = parsedUrl.searchParams.get('category') || 'all';
     const dest = (parsedUrl.searchParams.get('dest') || '').toLowerCase();
-
-    const RESIDENCES = [
-      {
-        id: "stay-ny",
-        title: "Manhattan Sky Residence",
-        location: "New York City, United States",
-        price: 380,
-        badge: "Penthouse",
-        category: "urban",
-        guests: 4,
-        type: "Luxury Penthouse",
-        features: ["Skyline View", "Concierge", "Private Terrace"],
-        availability: "Instant Booking",
-        img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80"
-      },
-      {
-        id: "stay-swiss",
-        title: "Zermatt Alpine Chalet",
-        location: "Zermatt, Switzerland",
-        price: 295,
-        badge: "Chalet",
-        category: "chalet",
-        guests: 6,
-        type: "Alpine Chalet",
-        features: ["Sauna", "Matterhorn View", "Ski-in Access"],
-        availability: "Available Today",
-        img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80"
-      },
-      {
-        id: "stay-santorini",
-        title: "Oia Cliffside Sanctuary",
-        location: "Santorini, Greece",
-        price: 340,
-        badge: "Oceanfront",
-        category: "villa",
-        guests: 2,
-        type: "Cliff Villa",
-        features: ["Caldera Sunset", "Infinity Plunge Pool", "Private Chef"],
-        availability: "Only 2 suites left",
-        img: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=900&q=80"
-      },
-      {
-        id: "stay-kyoto",
-        title: "Gion Heritage Machiya",
-        location: "Kyoto, Japan",
-        price: 210,
-        badge: "Historic",
-        category: "estate",
-        guests: 3,
-        type: "Traditional Machiya",
-        features: ["Zen Garden", "Hinoki Wood Bath", "Tea Ceremony Room"],
-        availability: "Available Today",
-        img: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=80"
-      },
-      {
-        id: "stay-paris",
-        title: "Saint-Germain Haussmann Suite",
-        location: "Paris, France",
-        price: 260,
-        badge: "Suite",
-        category: "urban",
-        guests: 2,
-        type: "Haussmann Suite",
-        features: ["Balcony View", "Wine Cellar Access", "Art Deco Interior"],
-        availability: "Instant Booking",
-        img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80"
-      },
-      {
-        id: "stay-bali",
-        title: "Ubud Rainforest Villa",
-        location: "Bali, Indonesia",
-        price: 180,
-        badge: "Villa",
-        category: "villa",
-        guests: 4,
-        type: "Rainforest Villa",
-        features: ["Private Infinity Pool", "Jungle Canopy", "Floating Breakfast"],
-        availability: "Available this week",
-        img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=900&q=80"
-      }
-    ];
 
     let filtered = RESIDENCES;
     if (category && category !== 'all') {
@@ -121,11 +64,7 @@ const server = http.createServer((req, res) => {
       filtered = filtered.filter(r => r.location.toLowerCase().includes(dest) || r.title.toLowerCase().includes(dest));
     }
 
-    res.writeHead(200, {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': '*',
-      'Cache-Control': 'no-cache'
-    });
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
     return res.end(JSON.stringify({
       status: 'success',
       source: 'TripStar Realtime Residences API',
@@ -135,6 +74,33 @@ const server = http.createServer((req, res) => {
     }));
   }
 
+  // 2. Chat AI Assistant API Endpoint
+  if (reqUrl === '/api/chat') {
+    if (req.method === 'POST') {
+      let body = '';
+      req.on('data', chunk => { body += chunk; });
+      req.on('end', () => {
+        try {
+          const parsed = JSON.parse(body || '{}');
+          const response = generateAiResponse(parsed.message || '');
+          res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+          return res.end(JSON.stringify(response));
+        } catch (e) {
+          res.writeHead(400, { 'Content-Type': 'application/json' });
+          return res.end(JSON.stringify({ error: 'Invalid JSON request' }));
+        }
+      });
+      return;
+    } else {
+      // Handle GET fallback with ?q=...
+      const query = parsedUrl.searchParams.get('q') || '';
+      const response = generateAiResponse(query);
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      return res.end(JSON.stringify(response));
+    }
+  }
+
+  // 3. Static File Serving
   if (reqUrl === '/') reqUrl = '/index.html';
 
   let filePath = path.join(ROOT, decodeURIComponent(reqUrl));
@@ -184,8 +150,8 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`\n========================================`);
-  console.log(`  TRIP-STAR Apple-Redesigned Platform`);
+  console.log(`\n======================================================`);
+  console.log(`  TRIP-STAR Platform & AI Concierge Service`);
   console.log(`  Local server running at: http://localhost:${PORT}`);
-  console.log(`========================================\n`);
+  console.log(`======================================================\n`);
 });

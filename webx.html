@@ -73,7 +73,9 @@
         <!-- Populated dynamically -->
       </div>
       <div id="noPartnersNotice" style="display:none; text-align:center; padding:50px 20px;">
-        <div style="font-size:2.4rem; margin-bottom:10px;">🔍</div>
+        <div style="display:inline-flex; align-items:center; justify-content:center; width:54px; height:54px; border-radius:50%; background:var(--bg-canvas); color:var(--label-secondary); margin-bottom:12px;">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
         <h3 style="font-size:1.2rem; color:var(--label-primary); margin-bottom:6px;">No services match your search</h3>
         <p style="color:var(--label-secondary); margin-bottom:16px; font-size:0.9rem;">Try a different keyword.</p>
         <button class="btn-apple btn-apple-secondary" onclick="document.getElementById('partnerSearchInput').value=''; filterPartners();">
@@ -130,6 +132,7 @@
     </div>
   </footer>
 
+  <script src="js/ai-engine.js"></script>
   <script src="js/app.js"></script>
   <script>
     const PARTNERS_REGISTRY = [

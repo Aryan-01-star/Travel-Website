@@ -43,14 +43,14 @@ const TripStar = (() => {
     }
 
     const iconMap = {
-      success: '✓',
-      info: 'ℹ',
-      heart: '♥',
-      error: '✕'
+      success: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>',
+      info: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
+      heart: '<svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+      error: '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>'
     };
 
     toast.innerHTML = `
-      <div class="toast-icon">${iconMap[type] || 'ℹ'}</div>
+      <div class="toast-icon">${iconMap[type] || iconMap.info}</div>
       <div class="toast-message">${message}</div>
     `;
 
@@ -364,7 +364,9 @@ const TripStar = (() => {
   function renderLoginPrompt(stayData, bookingPayload, overlay) {
     overlay.innerHTML = `
       <div class="apple-modal-content" style="max-width:480px; text-align:center;">
-        <button class="modal-close-btn" id="closeAuthPromptModal" aria-label="Close">✕</button>
+        <button class="modal-close-btn" id="closeAuthPromptModal" aria-label="Close">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
 
         <div style="width:58px; height:58px; border-radius:50%; background:rgba(0,113,227,0.1); color:var(--apple-blue); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
           <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
@@ -496,7 +498,9 @@ const TripStar = (() => {
 
     overlay.innerHTML = `
       <div class="apple-modal-content">
-        <button class="modal-close-btn" id="closeBookingModal" aria-label="Close">✕</button>
+        <button class="modal-close-btn" id="closeBookingModal" aria-label="Close">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
           <img src="${stayData.img}" alt="${stayData.title}" style="width:72px; height:72px; border-radius:14px; object-fit:cover; border:1px solid #E5E5EA;">
           <div>
@@ -509,7 +513,7 @@ const TripStar = (() => {
               </div>
             ` : `
               <div style="display:inline-flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--gold-warm); font-weight:600; margin-top:4px; background:rgba(217,119,6,0.08); padding:2px 8px; border-radius:var(--radius-full);">
-                <span>🔒</span> Sign in required to confirm
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Sign in required to confirm
               </div>
             `}
           </div>
@@ -639,7 +643,9 @@ const TripStar = (() => {
 
     overlay.innerHTML = `
       <div class="apple-modal-content" style="max-width:640px;">
-        <button class="modal-close-btn" id="closeCountryModal" aria-label="Close">✕</button>
+        <button class="modal-close-btn" id="closeCountryModal" aria-label="Close">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
         <div style="position:relative; height:220px; margin:-32px -32px 20px -32px; overflow:hidden; border-radius:var(--radius-xl) var(--radius-xl) 0 0;">
           <img src="${countryData.img}" style="width:100%; height:100%; object-fit:cover;">
           <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);"></div>
@@ -677,8 +683,8 @@ const TripStar = (() => {
           <a href="listing.html?dest=${encodeURIComponent(countryData.name)}" class="btn-apple btn-apple-primary" style="flex:1;">
             Explore Stays in ${countryData.name}
           </a>
-          <button class="btn-apple btn-apple-secondary" id="wishlistCountryBtn" data-country="${countryData.name}">
-            ♥ Save
+          <button class="btn-apple btn-apple-secondary" id="wishlistCountryBtn" data-country="${countryData.name}" style="display:inline-flex; align-items:center; gap:6px;">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> Save
           </button>
         </div>
       </div>
@@ -699,10 +705,300 @@ const TripStar = (() => {
     });
   }
 
+  // =========================================================================
+  // TRIP-STAR ANIMATED CONCIERGE CHARACTER & CHAT AI ASSISTANT (BOTTOM-RIGHT)
+  // Physics bobbing character, eye blinking, soft shadow pulsation, zero emojis
+  // =========================================================================
+  function getAnimatedCharacterSvg(size = 58) {
+    return `
+      <svg class="character-svg-container" width="${size}" height="${size}" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="charBodyGrad" x1="10" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#2D3748"/>
+            <stop offset="100%" stop-color="#121212"/>
+          </linearGradient>
+          <linearGradient id="charVisorGrad" x1="16" y1="20" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#1A202C"/>
+            <stop offset="100%" stop-color="#0A0D12"/>
+          </linearGradient>
+          <linearGradient id="charGoldGrad" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F7EFE4"/>
+            <stop offset="50%" stop-color="#C5A880"/>
+            <stop offset="100%" stop-color="#9A7B4F"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Antenna & Glowing Beacon -->
+        <path d="M30 14V6" stroke="url(#charGoldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="30" cy="5" r="3.2" fill="#FFE29F" class="char-antenna-light"/>
+
+        <!-- Headphone Band & Ear Cups -->
+        <path d="M10 24C10 13 50 13 50 24" stroke="url(#charGoldGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        <rect x="5" y="23" width="6.5" height="17" rx="3.25" fill="#1A202C" stroke="url(#charGoldGrad)" stroke-width="1.5"/>
+        <rect x="48.5" y="23" width="6.5" height="17" rx="3.25" fill="#1A202C" stroke="url(#charGoldGrad)" stroke-width="1.5"/>
+
+        <!-- Main Outer Shell -->
+        <circle cx="30" cy="32" r="21" fill="url(#charBodyGrad)" stroke="url(#charGoldGrad)" stroke-width="1.6"/>
+
+        <!-- High-Gloss Visor Screen -->
+        <rect x="16" y="23" width="28" height="18" rx="9" fill="url(#charVisorGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        
+        <!-- Visor Reflection Sheen -->
+        <path d="M19 25.5C23 24.5 37 24.5 41 25.5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Animated Blinking Eyes -->
+        <ellipse cx="23.5" cy="31" rx="2.8" ry="3.8" fill="#FFE29F" class="char-eye"/>
+        <ellipse cx="36.5" cy="31" rx="2.8" ry="3.8" fill="#FFE29F" class="char-eye"/>
+
+        <!-- Friendly Smile -->
+        <path d="M27 36.5C28.5 38 31.5 38 33 36.5" stroke="#C5A880" stroke-width="1.6" stroke-linecap="round"/>
+
+        <!-- Minimal Cheek Tone -->
+        <circle cx="19.5" cy="34" r="1.5" fill="rgba(224, 90, 71, 0.45)"/>
+        <circle cx="40.5" cy="34" r="1.5" fill="rgba(224, 90, 71, 0.45)"/>
+      </svg>
+    `;
+  }
+
+  function initAiAssistant() {
+    if (document.getElementById('appleAiChatToggle')) return;
+
+    // 1. Create floating animated character button at bottom-right (compact icon, zero text clutter)
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'appleAiChatToggle';
+    toggleBtn.className = 'apple-ai-character-trigger';
+    toggleBtn.setAttribute('aria-label', 'Atlas - AI Travel Concierge');
+    toggleBtn.setAttribute('title', 'Atlas - AI Travel Concierge');
+    toggleBtn.innerHTML = `
+      <div class="character-avatar-wrap">
+        ${getAnimatedCharacterSvg(42)}
+        <div class="character-shadow"></div>
+      </div>
+    `;
+
+    // 2. Create the floating chat panel
+    const panel = document.createElement('div');
+    panel.id = 'appleAiChatPanel';
+    panel.className = 'apple-ai-chat-panel';
+    panel.innerHTML = `
+      <div class="ai-chat-header">
+        <div class="ai-chat-header-left">
+          <div style="width:38px; height:38px; display:flex; align-items:center; justify-content:center;">
+            ${getAnimatedCharacterSvg(38)}
+          </div>
+          <div>
+            <div class="ai-header-title">Atlas &bull; AI Concierge</div>
+            <div class="ai-header-status">
+              <span class="ai-header-status-dot"></span>
+              <span>Online &bull; Interactive Travel Guide</span>
+            </div>
+          </div>
+        </div>
+        <div class="ai-chat-header-actions">
+          <button class="ai-header-icon-btn" id="aiClearChatBtn" title="Clear Conversation" aria-label="Clear Chat">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </button>
+          <button class="ai-header-icon-btn" id="aiCloseChatBtn" title="Close Assistant" aria-label="Close Chat">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ai-chat-suggestions">
+        <button class="ai-suggestion-chip" data-query="Find luxury chalets in Switzerland">Chalets in Switzerland</button>
+        <button class="ai-suggestion-chip" data-query="Recommend cliffside villas in Santorini">Villas in Santorini</button>
+        <button class="ai-suggestion-chip" data-query="Best season to visit Kyoto Japan">Kyoto Seasons</button>
+        <button class="ai-suggestion-chip" data-query="What flights and airlines are supported?">Aviation Partners</button>
+        <button class="ai-suggestion-chip" data-query="How does the ambassador rewards program work?">Rewards Program</button>
+      </div>
+
+      <div class="ai-chat-body" id="aiChatBody">
+        <div class="ai-msg-row assistant">
+          <div class="ai-bubble">
+            Hello! I am Atlas, your TripStar AI Travel Concierge. I can guide you through our handpicked luxury chalets, cliffside villas, and city penthouses, or answer questions about destinations, weather, and reservations. Where would you like to travel?
+          </div>
+          <div class="ai-msg-time">Atlas</div>
+        </div>
+      </div>
+
+      <form class="ai-chat-input-bar" id="aiChatForm" onsubmit="event.preventDefault();">
+        <input type="text" id="aiChatInput" class="ai-chat-input" placeholder="Ask Atlas anything..." autocomplete="off">
+        <button type="submit" class="ai-send-btn" id="aiSendBtn" aria-label="Send Message">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </form>
+    `;
+
+    document.body.appendChild(toggleBtn);
+    document.body.appendChild(panel);
+
+    toggleBtn.addEventListener('click', () => {
+      const isActive = panel.classList.toggle('active');
+      if (isActive) {
+        document.getElementById('aiChatInput').focus();
+      }
+    });
+
+    document.getElementById('aiCloseChatBtn').addEventListener('click', () => {
+      panel.classList.remove('active');
+    });
+
+    document.getElementById('aiClearChatBtn').addEventListener('click', () => {
+      const body = document.getElementById('aiChatBody');
+      body.innerHTML = `
+        <div class="ai-msg-row assistant">
+          <div class="ai-bubble">
+            Conversation refreshed. How may Atlas assist your travel plans today?
+          </div>
+          <div class="ai-msg-time">Atlas</div>
+        </div>
+      `;
+      showToast('Chat history cleared', 'info');
+    });
+
+    panel.querySelectorAll('.ai-suggestion-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const query = chip.getAttribute('data-query');
+        sendAiMessage(query);
+      });
+    });
+
+    document.getElementById('aiChatForm').addEventListener('submit', () => {
+      const input = document.getElementById('aiChatInput');
+      const val = input.value.trim();
+      if (val) {
+        input.value = '';
+        sendAiMessage(val);
+      }
+    });
+  }
+
+  function formatAiReply(text) {
+    if (!text) return '';
+    let html = escapeHtml(text);
+    // Bold **text**
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Italic *text*
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    // Inline code `text`
+    html = html.replace(/`([^`]+)`/g, '<code style="background:rgba(0,0,0,0.06); padding:2px 6px; border-radius:4px; font-size:0.86em; font-family:monospace;">$1</code>');
+    // Bullet points: • item
+    html = html.replace(/^• (.*)$/gm, '<li style="margin-left:18px; margin-bottom:3px; list-style-type:disc;">$1</li>');
+    html = html.replace(/(<li.*<\/li>\n?)+/g, '<ul style="margin:6px 0; padding-left:0;">$&</ul>');
+    // Numbered points: 1. item
+    html = html.replace(/^(\d+)\. (.*)$/gm, '<li style="margin-left:18px; margin-bottom:3px; list-style-type:decimal;">$2</li>');
+    // Newlines to linebreaks and spacing
+    html = html.replace(/\n\n/g, '<div style="height:8px;"></div>').replace(/\n/g, '<br>');
+    return html;
+  }
+
+  async function sendAiMessage(userText) {
+    const chatBody = document.getElementById('aiChatBody');
+    if (!chatBody) return;
+
+    const userRow = document.createElement('div');
+    userRow.className = 'ai-msg-row user';
+    userRow.innerHTML = `
+      <div class="ai-bubble">${escapeHtml(userText)}</div>
+      <div class="ai-msg-time">You</div>
+    `;
+    chatBody.appendChild(userRow);
+
+    const typingRow = document.createElement('div');
+    typingRow.className = 'ai-msg-row assistant typing-row';
+    typingRow.innerHTML = `
+      <div class="ai-typing-dots">
+        <span class="ai-typing-dot"></span>
+        <span class="ai-typing-dot"></span>
+        <span class="ai-typing-dot"></span>
+      </div>
+    `;
+    chatBody.appendChild(typingRow);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    let replyText = "";
+    let recommendedStays = [];
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        replyText = data.reply;
+        recommendedStays = data.recommendedStays || [];
+      } else {
+        throw new Error('API unavailable');
+      }
+    } catch (e) {
+      const fallback = localAiFallback(userText);
+      replyText = fallback.reply;
+      recommendedStays = fallback.recommendedStays || [];
+    }
+
+    typingRow.remove();
+
+    const assistantRow = document.createElement('div');
+    assistantRow.className = 'ai-msg-row assistant';
+
+    let staysHtml = '';
+    if (recommendedStays && recommendedStays.length > 0) {
+      staysHtml = recommendedStays.map(stay => `
+        <div class="ai-stay-mini-card">
+          <div class="ai-stay-mini-media">
+            <img src="${stay.img}" alt="${stay.title}" loading="lazy">
+            <span class="ai-stay-mini-badge">${stay.badge || 'Luxury'}</span>
+          </div>
+          <div class="ai-stay-mini-body">
+            <div class="ai-stay-mini-title">${stay.title}</div>
+            <div class="ai-stay-mini-loc">${stay.location}</div>
+            <div class="ai-stay-mini-footer">
+              <span class="ai-stay-mini-price">$${stay.price}<span style="font-size:0.75rem; font-weight:normal; color:var(--label-secondary);"> / night</span></span>
+              <button class="ai-stay-book-btn" onclick="TripStar.openBookingModal(${JSON.stringify(stay).replace(/"/g, '&quot;')})">Book Now</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    assistantRow.innerHTML = `
+      <div class="ai-bubble">
+        ${formatAiReply(replyText)}
+        ${staysHtml}
+      </div>
+      <div class="ai-msg-time">Atlas</div>
+    `;
+    chatBody.appendChild(assistantRow);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function localAiFallback(userText) {
+    if (typeof TripStarAi !== 'undefined' && typeof TripStarAi.answerTravelQuery === 'function') {
+      return TripStarAi.answerTravelQuery(userText);
+    }
+    return {
+      reply: "Welcome to TripStar! I am Atlas, your AI Travel Concierge. I can help you discover luxury chalets, cliffside villas, and city penthouses across Switzerland, Greece, Japan, France, Indonesia, and New York. What destination or stay would you like to explore?",
+      recommendedStays: []
+    };
+  }
+
+  function escapeHtml(str) {
+    return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
   // Init on DOM ready
   document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     updateHeartIcons();
+    initAiAssistant();
 
     document.body.addEventListener('click', (e) => {
       const heartBtn = e.target.closest('[data-wishlist-id]');
@@ -729,6 +1025,7 @@ const TripStar = (() => {
     getWishlist,
     openBookingModal,
     openCountryModal,
+    initAiAssistant,
     getStorage,
     setStorage,
     STORAGE_KEYS
